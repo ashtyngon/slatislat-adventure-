@@ -2,40 +2,43 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Слатислат Муромский — Аркада 90-х</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <title>Prince Slatislav: Quest for Glory</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="wrap">
-    <header class="topbar">
-      <h1>Слатислат Муромский — Аркадный режим</h1>
-      <button id="start-arcade" class="btn">Аркадный режим (90-е)</button>
-    </header>
+  <!-- HUD -->
+  <div id="hud">
+    <div class="left">
+      <div id="health" aria-label="health"></div>
+    </div>
+    <div class="right">
+      <div id="score">SCORE: 000000</div>
+    </div>
+  </div>
 
-    <section id="arcade-root" style="display:none;">
-      <div id="hud" class="hud">
-        <div id="hearts">❤❤❤</div>
-        <div id="quest">Квест: Собери 3 бересты и разнеси налогового сборщика</div>
-      </div>
-      <canvas id="game" width="320" height="180"></canvas>
-      <div class="controls">
-        WASD/стрелки — движение • J — удар мечом • K — рывок • E — взаимодействие • P — пауза
-      </div>
-    </section>
+  <!-- Touch controls (auto-hide on desktop) -->
+  <div id="controls">
+    <div id="stick">
+      <div class="ring"></div>
+      <div class="nub"></div>
+    </div>
+    <div class="buttons">
+      <button id="btn-attack" class="btn">J</button>
+      <button id="btn-dash"   class="btn">K</button>
+    </div>
+  </div>
 
-    <section class="lore">
-      <h2>Контекст</h2>
-      <p>
-        Слатислат Муромский (ок. 890 — ок. 960) — легендарный первый князь Мурома: реформатор,
-        культурный новатор, один из основателей письменной традиции на Руси. Квир-линия: Радогост —
-        ближайший советник и любовный интерес; браки с княжнами — политический инструмент.
-        В аркаде: собери бересты, разнеси «окский сбор», встреться с Радогостом.
-      </p>
-    </section>
-  </main>
+  <!-- Canvas fills page -->
+  <canvas id="scene"></canvas>
 
-  <script defer src="arcade.js"></script>
-  <script defer src="game.js"></script>
+  <!-- Hints -->
+  <div id="hint">
+    <div>WASD/←↑→↓ — движение • J — удар • K — рывок</div>
+  </div>
+
+  <!-- three.js from CDN, no bundlers -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
