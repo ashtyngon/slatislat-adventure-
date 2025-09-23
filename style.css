@@ -1,88 +1,76 @@
-* { box-sizing: border-box; }
 :root {
-  /* Классическая палитра из 90-х */
-  --bg: #c0c0c0; /* Серый фон */
-  --panel: #000080; /* Тёмно-синий для панелей */
-  --text: #ffffff; /* Белый текст */
-  --muted: #c0c0c0; /* Серый для неактивного текста */
-  --accent: #ffff00; /* Жёлтый акцент */
-  --border-light: #ffffff;
-  --border-dark: #808080;
+  --bg: #0b0f16;
+  --ink: #e6e6e6;
+  --muted: #9aa4b2;
+  --accent: #ffd9a8;
+  --panel: #121825;
+  --line: #20283a;
 }
-html, body {
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
   margin: 0;
-  padding: 0;
   background: var(--bg);
-  color: #000000;
-  /* Устанавливаем пиксельный шрифт для всей страницы */
-  font-family: 'Press Start 2P', cursive;
-  font-size: 12px; /* Уменьшаем базовый размер шрифта */
+  color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-a { color: var(--accent); }
-.app-header {
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 20px; }
+
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+h1 { font-size: 22px; margin: 0; }
+
+.btn {
+  background: #2b3348;
+  color: #fff;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+
+#arcade-root {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+canvas#game {
+  image-rendering: pixelated;
+  border: 2px solid #222;
+  width: 960px;
+  height: 540px;
+  background: var(--bg);
+}
+
+.hud {
+  width: 960px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  border-bottom: 2px solid var(--border-dark);
-  background: var(--panel);
-  color: var(--text);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  color: var(--accent);
+  font-weight: 700;
 }
-.app-header h1 { margin: 0; font-size: 14px; }
-.app-header h1 span { color: var(--accent); }
-.controls button { margin-left: 8px; }
-button {
-  background: #c0c0c0;
-  border: 1px solid;
-  border-color: var(--border-light) var(--border-dark) var(--border-dark) var(--border-light);
-  border-width: 2px;
-  color: #000000;
-  padding: 8px 10px;
-  border-radius: 0; /* Убираем скругления */
-  cursor: pointer;
-  font-family: 'Press Start 2P', cursive;
-}
-button:active {
-  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
-}
-.app-main { display: grid; grid-template-columns: 250px 1fr; gap: 12px; padding: 12px; }
-.panel {
-  background: var(--panel);
-  border: 2px solid;
-  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
-  border-radius: 0;
-  padding: 10px;
-  height: calc(100vh - 100px);
-  overflow: auto;
-  position: sticky;
-  top: 60px;
-  color: var(--text);
-}
-.stat { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 12px; }
-.stat div { background: #000000; padding: 6px; font-size: 10px; color: var(--muted); }
-.inv h3, .log h3 { margin: 12px 0 8px; font-size: 12px; color: var(--accent); }
-#inventory { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
-#inventory li { background: #000000; padding: 4px 6px; font-size: 10px; }
-.log #log { background: #000000; border: 1px solid var(--border-dark); border-radius: 0; padding: 8px; max-height: 200px; overflow: auto; font-size: 10px; color: var(--muted); }
-.story {
-  background: #ffffff;
-  border: 2px solid;
-  border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
-  border-radius: 0;
+#hearts { letter-spacing: 2px; }
+#quest { color: #ffe5c4; font-weight: 600; }
+
+.controls { color: var(--muted); font-size: 14px; }
+
+.lore {
+  margin-top: 16px;
   padding: 16px;
-  min-height: 60vh;
+  background: #0f1522;
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
-.scene-title { font-size: 14px; font-weight: bold; margin-bottom: 12px; text-transform: uppercase; }
-.scene-text { line-height: 1.8; color: #000000; min-height: 100px; }
-.choices { display: grid; gap: 8px; margin-top: 16px; }
-.choice { text-align: left; }
-.choice small { display: block; color: #555; font-size: 9px; margin-top: 4px; }
-.app-footer { border-top: 2px solid var(--border-dark); padding: 10px 12px; color: #555; text-align: center; font-size: 10px;}
-.switch { display: flex; gap: 10px; align-items: center; }
-@media (max-width: 900px) {
-  .app-main { grid-template-columns: 1fr; }
-  .panel { position: static; height: auto; }
-}
+.lore h2 { margin: 0 0 8px; font-size: 18px; }
+.lore p { margin: 0; color: #c7cfdd; }
