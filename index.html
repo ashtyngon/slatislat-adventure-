@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
-    <title>Slatislat RPG</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Слатислат Муромский — Аркада 90-х</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <script src="game.js"></script>
+  <main class="wrap">
+    <header class="topbar">
+      <h1>Слатислат Муромский — Аркадный режим</h1>
+      <button id="start-arcade" class="btn">Аркадный режим (90-е)</button>
+    </header>
+
+    <section id="arcade-root" style="display:none;">
+      <div id="hud" class="hud">
+        <div id="hearts">❤❤❤</div>
+        <div id="quest">Квест: Собери 3 бересты и разнеси налогового сборщика</div>
+      </div>
+      <canvas id="game" width="320" height="180"></canvas>
+      <div class="controls">
+        WASD/стрелки — движение • J — удар мечом • K — рывок • E — взаимодействие • P — пауза
+      </div>
+    </section>
+
+    <section class="lore">
+      <h2>Контекст</h2>
+      <p>
+        Слатислат Муромский (ок. 890 — ок. 960) — легендарный первый князь Мурома: реформатор,
+        культурный новатор, один из основателей письменной традиции на Руси. Квир-линия: Радогост —
+        ближайший советник и любовный интерес; браки с княжнами — политический инструмент.
+        В аркаде: собери бересты, разнеси «окский сбор», встреться с Радогостом.
+      </p>
+    </section>
+  </main>
+
+  <script defer src="arcade.js"></script>
+  <script defer src="game.js"></script>
 </body>
 </html>
