@@ -1,68 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Слатислат Муромский: Берестяной Путь</title>
-  <meta name="description" content="Текстовое приключение о легендарном первом князе Мурома." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <title>Slatislat RPG</title>
 </head>
 <body>
-  <header class="app-header">
-    <h1>Слатислат Муромский: <span>Берестяной Путь</span></h1>
-    <div class="controls">
-      <button id="btn-new">Новая игра</button>
-      <button id="btn-continue">Продолжить</button>
-      <button id="btn-settings">Настройки</button>
-    </div>
-  </header>
-
-  <main class="app-main">
-    <aside class="panel">
-      <section class="stat">
-        <div><strong>Годы:</strong> <span id="year">912</span></div>
-        <div><strong>Влияние:</strong> <span id="inf">0</span></div>
-        <div><strong>Союзы:</strong> <span id="alliances">0/5</span></div>
-        <div><strong>Береста:</strong> <span id="bark">0</span></div>
-      </section>
-      <section class="inv">
-        <h3>Записи</h3>
-        <ul id="inventory"></ul>
-      </section>
-      <section class="log">
-        <h3>Летопись</h3>
-        <div id="log"></div>
-      </section>
-    </aside>
-
-    <section class="story">
-      <div id="scene-title" class="scene-title"></div>
-      <div id="scene-text" class="scene-text"></div>
-      <div id="choices" class="choices"></div>
-    </section>
-  </main>
-
-  <dialog id="settings-modal">
-    <form method="dialog">
-      <h3>Настройки</h3>
-      <label class="switch">
-        <input type="checkbox" id="toggle-fast">
-        <span>Ускоренная печать текста</span>
-      </label>
-      <menu>
-        <button value="cancel">Закрыть</button>
-      </menu>
-    </form>
-  </dialog>
-
-  <footer class="app-footer">
-    <p>© 2025. Игра по мотивам легенд и историографии о Слатислате Муромском.</p>
-    <p><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
-  </footer>
-
-  <script src="game.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
