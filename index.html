@@ -1,44 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-  <title>Prince Slatislav: Quest for Glory</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>Слатислав: Каменный Ритм</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        canvas { box-shadow: 0 0 30px #ffc300; }
+    </style>
 </head>
 <body>
-  <!-- HUD -->
-  <div id="hud">
-    <div class="left">
-      <div id="health" aria-label="health"></div>
-    </div>
-    <div class="right">
-      <div id="score">SCORE: 000000</div>
-    </div>
-  </div>
-
-  <!-- Touch controls (auto-hide on desktop) -->
-  <div id="controls">
-    <div id="stick">
-      <div class="ring"></div>
-      <div class="nub"></div>
-    </div>
-    <div class="buttons">
-      <button id="btn-attack" class="btn">J</button>
-      <button id="btn-dash"   class="btn">K</button>
-    </div>
-  </div>
-
-  <!-- Canvas fills page -->
-  <canvas id="scene"></canvas>
-
-  <!-- Hints -->
-  <div id="hint">
-    <div>WASD/←↑→↓ — движение • J — удар • K — рывок</div>
-  </div>
-
-  <!-- three.js from CDN, no bundlers -->
-  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-  <script src="main.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
